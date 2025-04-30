@@ -1,0 +1,24 @@
+<h2>Buscar puntos turísticos cercanos</h2>
+<form (ngSubmit)="buscarCercanos()">
+  <label>
+    Latitud:
+    <input type="number" [(ngModel)]="lat" name="lat" required>
+  </label>
+  <label>
+    Longitud:
+    <input type="number" [(ngModel)]="lng" name="lng" required>
+  </label>
+  <label>
+    Radio (km):
+    <input type="number" [(ngModel)]="radio" name="radio" required>
+  </label>
+  <button type="submit">Buscar</button>
+</form>
+
+<ul>
+  @for (punto of puntosCercanos; track $index) {
+    <li>
+      <strong>{{ punto.categoria }}:</strong> {{ punto.nombre }} ({{ punto.lat }}, {{ punto.long }})
+    </li>
+  }
+</ul>

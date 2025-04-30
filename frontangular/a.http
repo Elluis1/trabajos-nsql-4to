@@ -1,0 +1,11 @@
+###
+GET http://localhost:8000/api/cercanos/
+
+###
+GET http://localhost:8000/api/guardar-puntos/
+
+###
+GET http://localhost:8000/api/obtener_ubicaciones/
+
+###
+GET http://localhost:8000/api/borrar_ubicaciones/

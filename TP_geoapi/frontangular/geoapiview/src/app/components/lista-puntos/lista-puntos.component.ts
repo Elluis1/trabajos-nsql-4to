@@ -15,6 +15,7 @@ export class ListaPuntosComponent implements OnInit {
 
   ngOnInit() {
     this.puntosService.loadPuntos().subscribe()
+    
     this.puntosService.getPuntos().subscribe(
       {
         next: (data) => {

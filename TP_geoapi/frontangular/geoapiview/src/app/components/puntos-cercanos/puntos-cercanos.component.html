@@ -18,7 +18,7 @@
 <ul>
   @for (punto of puntosCercanos; track $index) {
     <li>
-      <strong>{{ punto.categoria }}:</strong> {{ punto.nombre }} ({{ punto.lat }}, {{ punto.long }})
+      <strong>{{ punto.categoria }}:</strong> {{ punto.nombre }} ({{ punto.lat }}, {{ punto.long }}) Distancia: {{ punto.distancia }}
     </li>
   }
 </ul>

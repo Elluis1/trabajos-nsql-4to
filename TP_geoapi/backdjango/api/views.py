@@ -32,7 +32,7 @@ def guardar_puntos(request):
         (-32.484501979753766, -58.25465514606285, "Deportes", "Oeste Padel"),
     ]
 
-    for lon, lat, cat, nombre in puntos:
+    for lat, lon, cat, nombre in puntos:
         redis_client.geoadd("puntos", (lon, lat, f"{cat}|{nombre}"))
 
     return JsonResponse({"status": "OK", "msg": "Se guardaron los puntos"})
@@ -72,5 +72,31 @@ def ubicaciones_cercanas(request):
 def borrar_todos_los_puntos(request):
     redis_client.delete("puntos")
     return JsonResponse({"status": "OK", "msg": "Todos los puntos fueron eliminados"})
+
+def distancia_ubicacion(request):
+    lat = float(request.GET.get('lat'))
+    lng = float(request.GET.get('lng'))
+    radio = float(request.GET.get('radio'))
+
+    # Usamos WITHDIST además de WITHCOORD
+    puntos = redis_client.execute_command(
+        'GEORADIUS', 'puntos', lng, lat, radio, 'km', 'WITHCOORD', 'WITHDIST'
+    )
+
+    resultado = []
+    for punto in puntos:
+        nombre = punto[0].decode() if isinstance(punto[0], bytes) else punto[0]
+        distancia = float(punto[1])
+        lon, lat = map(float, punto[2])
+        cat, nom = nombre.split("|", 1)
+        resultado.append({
+            'nombre': nom,
+            'categoria': cat,
+            'lat': lat,
+            'long': lon,
+            'distancia': round(distancia, 2)
+        })
+
+    return JsonResponse({'puntos': resultado})
 
 

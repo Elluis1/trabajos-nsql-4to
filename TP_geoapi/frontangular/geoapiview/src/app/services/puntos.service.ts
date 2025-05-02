@@ -6,26 +6,37 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PuntosService {
-  readonly apiUrl = 'http://localhost:8000/api/obtener_ubicaciones/';
+  readonly apiUrl = 'http://localhost:8000/api/';
+
+  loadPuntos(): Observable<any> {
+    const url = `guardar_puntos/`
+    return this.http.get<any[]>(this.apiUrl + url)
+  }
 
   puntos: any[];
 
   constructor(private http: HttpClient) {
     this.puntos = [];
   }
-
-  buscarPuntosCercanos(lat: number, lng: number, radio: number): Observable<any> {
-    const url = `http://localhost:8000/api/cercanos/?lat=${lat}&lng=${lng}&radio=${radio}`;
-    return this.http.get<any>(url);
-  }
   
+  buscarPuntosCercanos(lat: number, lng: number, radio: number): Observable<any> {
+    const url = `distancias/?lat=${lat}&lng=${lng}&radio=${radio}`;
+    return this.http.get<any>(this.apiUrl + url);
+  }
+
+  buscarPuntosCercanosConDistancia(lat: number, lng: number, radio: number): Observable<any> {
+    const url = `distancias/?lat=${lat}&lng=${lng}&radio=${radio}`;
+    return this.http.get<any>(this.apiUrl + url);
+  }
 
   getPuntos(): Observable<any> {
-    return this.http.get<any[]>(this.apiUrl);
+    const url = `obtener_ubicaciones/`
+    return this.http.get<any[]>(this.apiUrl + url);
   }
 
-  loadPuntos(): Observable<any> {
-    const url = `http://localhost:8000/api/guardar_puntos/`
-    return this.http.get<any[]>(url)
-  }
+  getPuntosConDistancia(lat: number, lng: number): Observable<any[]> {
+    const url = `obtener_ubicaciones/?lat=${lat}&lng=${lng}`;
+    return this.http.get<any[]>(this.apiUrl + url);
+  }  
+
 }

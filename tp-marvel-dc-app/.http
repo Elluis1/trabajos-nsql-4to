@@ -1,0 +1,26 @@
+####
+
+GET http://localhost:8000/api/personajes/
+
+####
+
+POST http://localhost:8000/api/personajes/ 
+Content-Type: application/json
+
+{
+    "nombre": "Natasha Romanoff",
+    "alias": "Black Widow",
+    "universo": "Marvel",
+    "poderes": [
+        "Espionaje",
+        "Combate cuerpo a cuerpo",
+        "Armas avanzadas"
+    ],
+    "apariciones": [
+        "Black Widow",
+        "Avengers: Endgame"
+    ],
+    "imagen": "https://example.com/blackwidow.jpg",
+    "edad": 35,
+    "descripcion": "Espía rusa convertida en heroína de los Vengadores."
+}

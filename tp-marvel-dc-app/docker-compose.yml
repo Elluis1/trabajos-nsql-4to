@@ -1,0 +1,40 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongo:/docker-entrypoint-initdb.d
+    networks:
+      - app-network
+
+  backend:
+    build: ./backend
+    container_name: backend
+    depends_on:
+      - mongo
+    ports:
+      - "8000:8000"
+    networks:
+      - app-network
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/comicsdb
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "4200:4200"
+    command: npm run start
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

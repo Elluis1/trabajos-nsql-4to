@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { ConnectionDjangoService } from '../utils/connection-django.service';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-lista-personajes',
   standalone: true,
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './lista-personajes.component.html',
   styleUrl: './lista-personajes.component.css'
 })

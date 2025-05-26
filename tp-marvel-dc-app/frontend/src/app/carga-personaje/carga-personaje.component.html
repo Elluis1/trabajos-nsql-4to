@@ -1,32 +1,16 @@
-<form (ngSubmit)="enviarDatos()">
-    <label for="nombre">Nombre:</label>
-    <input id="nombre" [(ngModel)]="personaje.nombre" name="nombre" required />
-
-    <label for="alias">Alias:</label>
-    <input id="alias" [(ngModel)]="personaje.alias" name="alias" required />
-
-    <label for="universo">Universo:</label>
-    <select id="universo" [(ngModel)]="personaje.universo" name="universo" required>
-      <option value="" disabled selected>Selecciona un universo</option>
-      <option value="DC">DC</option>
-      <option value="Marvel">Marvel</option>
-      <option value="Otros">Otros</option>
-    </select>
-
-    <!-- <label for="poderes">Poderes:</label>
-    <input id="poderes" [(ngModel)]="personaje.poderes" name="poderes" required />
-
-    <label for="apariciones">Apariciones:</label>
-    <input id="apariciones" [(ngModel)]="personaje.apariciones" name="apariciones" required /> -->
-
-    <label for="imagen">URL:</label>
-    <input id="imagen" [(ngModel)]="personaje.imagen" name="imagen" required />
-
-    <label for="edad">Edad:</label>
-    <input id="edad" [(ngModel)]="personaje.edad" name="edad" type="number" required />
-
-    <label for="descripcion">Descripción:</label>
-    <textarea id="descripcion" [(ngModel)]="personaje.descripcion" name="descripcion" required></textarea>
-
-    <button type="submit">Enviar</button>
+<form (ngSubmit)="enviarDatos()" enctype="multipart/form-data">
+  <input placeholder="Nombre" type="text" [(ngModel)]="personaje.nombre" name="nombre" required>
+  <input placeholder="Alias" type="text" [(ngModel)]="personaje.alias" name="alias" required>
+  <select [(ngModel)]="personaje.universo" name="universo" required>
+    <option value="Marvel">Marvel</option>
+    <option value="DC">DC</option>
+  </select>
+  <input placeholder="Poderes" type="text" [(ngModel)]="personaje.poderes" name="poderes">
+  <input placeholder="Apariciones" type="text" [(ngModel)]="personaje.apariciones" name="apariciones">
+  <input placeholder="Edad" type="number" [(ngModel)]="personaje.edad" name="edad">
+  <textarea placeholder="Descripcion" [(ngModel)]="personaje.descripcion" name="descripcion"></textarea>
+  
+  <input type="file" (change)="onFileSelected($event)" name="imagen">
+  
+  <button type="submit">Guardar Personaje</button>
 </form>

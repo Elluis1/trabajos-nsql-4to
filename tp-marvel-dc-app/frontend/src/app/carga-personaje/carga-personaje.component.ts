@@ -5,41 +5,52 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-carga-personaje',
   imports: [FormsModule],
-  standalone: true,
   templateUrl: './carga-personaje.component.html',
   styleUrl: './carga-personaje.component.css'
 })
 
 export class CargaPersonajeComponent {
-  poderes = ['Super fuerza', 'Vuelo', 'Invisibilidad', 'Telepatía', 'Regeneración', 'Control del tiempo'];
-  apariciones = ['Comic', 'Película', 'Serie de TV', 'Videojuego', 'Merchandising'];
+
+  constructor(private ConnectionDjangoService: ConnectionDjangoService) {}
 
   personaje = {
     nombre: '',
     alias: '',
     universo: '',
-    imagen: '',
+    poderes: '',
+    apariciones: '',
     edad: null,
-    descripcion: ''
+    descripcion: '',
+    url: ''
+  };
+
+  selectedFile: File | null = null;
+
+  onFileSelected(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedFile = file;
+    }
   }
 
-  constructor(private connectionService: ConnectionDjangoService) {}
+  enviarDatos(): void {
+    const formData = new FormData();
+    formData.append('nombre', this.personaje.nombre);
+    formData.append('alias', this.personaje.alias);
+    formData.append('universo', this.personaje.universo);
+    formData.append('poderes', this.personaje.poderes);         // coma-separado
+    formData.append('apariciones', this.personaje.apariciones); // coma-separado
+    formData.append('edad', this.personaje.edad !== null ? this.personaje.edad : '');
+    formData.append('descripcion', this.personaje.descripcion);
+    formData.append('imagen', this.selectedFile || new Blob());
 
-  enviarDatos() {
-    const data = {
-      nombre: this.personaje.nombre,
-      alias: this.personaje.alias,
-      universo: this.personaje.universo,
-      poderes: this.poderes,
-      apariciones: this.apariciones,
-      imagen: this.personaje.imagen,
-      edad: this.personaje.edad,
-      descripcion: this.personaje.descripcion
-    };
-    this.connectionService.cargarPersonaje(data).subscribe(response => {
-      console.log('Respuesta del servidor:', response);
-    }, error => {
-      console.error('Error al enviar los datos:', error);
+    this.ConnectionDjangoService.cargarPersonaje(formData).subscribe({
+      next: (response) => {
+        console.log('Personaje cargado exitosamente:', response);
+      },
+      error: (error) => {
+        console.error('Error al cargar el personaje:', error);
+      }
     });
   }
 }

@@ -1,5 +1,5 @@
 from django.db import models
-from mongoengine import Document, StringField, ListField, URLField, IntField
+from mongoengine import Document, StringField, ListField, IntField
 
 class Personaje(Document):
     nombre = StringField(required=True, max_length=100)
@@ -7,6 +7,6 @@ class Personaje(Document):
     universo = StringField(required=True, choices=('Marvel', 'DC'))
     poderes = ListField(StringField(), default=list)
     apariciones = ListField(StringField(), default=list)
-    imagen = URLField()
+    imagen = StringField()
     edad = IntField()
     descripcion = StringField()

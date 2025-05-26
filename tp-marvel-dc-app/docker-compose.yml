@@ -21,6 +21,8 @@ services:
       - app-network
     environment:
       - MONGO_URI=mongodb://mongo:27017/comicsdb
+    volumes:
+      - ./media:/app/media
 
   frontend:
     build: ./frontend

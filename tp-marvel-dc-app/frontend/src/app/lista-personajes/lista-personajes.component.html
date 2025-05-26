@@ -1,18 +1,12 @@
 <section>
     <h1>Lista de Personajes</h1>
     @for (personaje of personajes; track personaje.id) {
-        <div >
-        <div >
-        <div >
-            <div >
-            <img [src]="personaje.imagen" alt="{{ personaje.nombre }}">
-            <div >
-                <h5 >{{ personaje.nombre }}</h5>
-                <p >{{ personaje.descripcion }}</p>
-                <button >Ver Detalles</button>
-            </div>
-            </div>
-        </div>
+    <div>
+        <img [src]={{personaje.imagen}} alt={{personaje.nombre}}>
+        <div>
+            <h5>{{ personaje.nombre }}</h5>
+            <p>{{ personaje.descripcion }}</p>
+            <button>Ver Detalles</button>
         </div>
     </div>
     }

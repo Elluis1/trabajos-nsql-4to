@@ -1,5 +1,6 @@
 <section>
     <h1>Lista de Personajes de DC</h1>
+    <button routerLink="/lista-heroes">Inicio</button>
     @for (personaje of personajes; track personaje.id) {
         @if (personaje.universo === 'DC') {
             <div>

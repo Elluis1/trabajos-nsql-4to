@@ -22,6 +22,20 @@ export class VistaPersonajesComponent {
       return;
     }
 
+    if (typeof this.personaje.poderes === 'string') {
+      this.personaje.poderes = this.personaje.poderes
+        .split(',')
+        .map((p: string) => p.trim())
+        .filter((p: string) => p.length > 0);
+    }
+  
+    if (typeof this.personaje.apariciones === 'string') {
+      this.personaje.apariciones = this.personaje.apariciones
+        .split(',')
+        .map((a: string) => a.trim())
+        .filter((a: string) => a.length > 0);
+    }
+
     this.connectionDjango.updatePersonaje(this.personaje.id, this.personaje).subscribe({
       next: (response) => {
         console.log('Enviando personaje actualizado:', this.personaje);

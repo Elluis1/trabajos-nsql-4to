@@ -1,14 +1,26 @@
 <button routerLink="/">
     Inicio
 </button>
-<button (click)="posFoto()">
- Ant.
-</button>
-<img [ngSrc]="personaje.imagenes?.[numFoto]" alt="{{ personaje.nombre }}" width="100" height="150" priority>
-<button (click)="negFoto()">
- Sig.
-</button>
-<form (ngSubmit)="actualizarPersonaje()" #formulario="ngForm">
+@if (personaje.imagenes?.length > 1) {
+  <button (click)="posFoto()">
+    Ant.
+   </button>
+   <img [ngSrc]="personaje.imagenes?.[numFoto]" alt="{{ personaje.nombre }}" width="100" height="150" priority>
+   <button (click)="negFoto()">
+    Sig.
+   </button>
+} @else {
+  <img [ngSrc]="personaje.imagenes?.[0]" alt="{{ personaje.nombre }}" width="100" height="150" priority>
+}
+
+<div>
+  @if (personaje.universo === 'Marvel') {
+    <img src="icons/Marvel_Logo.svg.png" alt="Marvel logo" width="200" height="125">
+  } @else {
+    <img src="icons/DC_Comics_2024.svg.png" alt="DC logo" width="200" height="125">
+  }
+</div>
+<form (ngSubmit)="actualizarPersonaje()">
   <input [(ngModel)]="personaje.nombre" type="text" name="nombre" required>
   <input [(ngModel)]="personaje.alias" type="text" name="alias" required>
   <select [(ngModel)]="personaje.universo" name="universo" required>

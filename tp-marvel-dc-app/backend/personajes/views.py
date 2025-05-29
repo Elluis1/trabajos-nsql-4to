@@ -90,30 +90,41 @@ class PersonajeView(View):
                 if campo in data:
                     setattr(personaje, campo, data[campo])
 
-            # Procesar 'poderes'
             if "poderes" in data:
+                # Asegurar que 'poderes' sea una lista de strings
                 if isinstance(data["poderes"], str):
-                    personaje.poderes = [p.strip() for p in data["poderes"].split(',')]
+                    poderes = [p.strip() for p in data["poderes"].split(',')]
                 elif isinstance(data["poderes"], list):
-                    personaje.poderes = [str(p).strip() for p in data["poderes"]]
+                    poderes = [str(p).strip() for p in data["poderes"]]
                 else:
-                    personaje.poderes = []
+                    return JsonResponse({"error": "El campo 'poderes' debe ser string o lista"}, status=400)
 
-            # Procesar 'apariciones'
+                # Append sin duplicados
+                personajes_poderes = personaje.poderes if personaje.poderes else []
+                for p in poderes:
+                    if p and p not in personajes_poderes:
+                        personajes_poderes.append(p)
+                personaje.poderes = personajes_poderes
+
             if "apariciones" in data:
+                # Igual para apariciones
                 if isinstance(data["apariciones"], str):
-                    personaje.apariciones = [a.strip() for a in data["apariciones"].split(',')]
+                    apariciones = [a.strip() for a in data["apariciones"].split(',')]
                 elif isinstance(data["apariciones"], list):
-                    personaje.apariciones = [str(a).strip() for a in data["apariciones"]]
+                    apariciones = [str(a).strip() for a in data["apariciones"]]
                 else:
-                    personaje.apariciones = []
+                    return JsonResponse({"error": "El campo 'apariciones' debe ser string o lista"}, status=400)
+
+                personajes_apariciones = personaje.apariciones if personaje.apariciones else []
+                for a in apariciones:
+                    if a and a not in personajes_apariciones:
+                        personajes_apariciones.append(a)
+                personaje.apariciones = personajes_apariciones
 
             personaje.save()
-            return JsonResponse({"mensaje": "Personaje actualizado"})
+            return JsonResponse({"mensaje": "Personaje actualizado correctamente"})
         except Exception as e:
             return JsonResponse({"error": f"Error al editar personaje: {str(e)}"}, status=500)
-
-
 
     def delete(self, request, *args, **kwargs):
         personaje_id = kwargs.get('personaje_id')

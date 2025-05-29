@@ -39,7 +39,7 @@ export class CargaPersonajeComponent {
     formData.append('edad', this.personaje.edad !== null ? this.personaje.edad : '');
     formData.append('descripcion', this.personaje.descripcion);
     this.selectedFiles.forEach((file, index) => {
-      formData.append('imagenes', file); // el backend tiene que aceptar múltiples con este nombre
+      formData.append('imagenes', file);
     });
 
     this.ConnectionDjangoService.cargarPersonaje(formData).subscribe({

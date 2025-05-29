@@ -11,7 +11,6 @@ from django.conf import settings
 
 @method_decorator(csrf_exempt, name='dispatch')
 class PersonajeView(View):
-
     def get(self, request):
         personajes = Personaje.objects()
         data = []
@@ -23,7 +22,7 @@ class PersonajeView(View):
                 "universo": p.universo,
                 "poderes": p.poderes,
                 "apariciones": p.apariciones,
-                "imagen": p.imagen,
+                "imagenes": p.imagenes,
                 "edad": p.edad,
                 "descripcion": p.descripcion
             })
@@ -33,7 +32,7 @@ class PersonajeView(View):
         try:
             if request.content_type.startswith('multipart/form-data'):
                 data = request.POST
-                file = request.FILES.get('imagen')
+                file = request.FILES.get('imagenes')
             else:
                 data = json.loads(request.body)
                 file = None
@@ -44,22 +43,23 @@ class PersonajeView(View):
                     return JsonResponse({"error": f"El campo '{campo}' es obligatorio"}, status=400)
 
             # Guardar imagen si se envió
-            url_imagen = None
-            if file:
-                # limpiar nombre
-                nombre_archivo = re.sub(r'\s+', '_', file.name)
-                nombre_archivo = re.sub(r'[^\w.-]', '', nombre_archivo)
+            files = request.FILES.getlist('imagenes')  # Cambia a plural
+            urls_imagenes = []
 
-                ruta_archivo = os.path.join(settings.MEDIA_ROOT, nombre_archivo)
+            if files:
+                for file in files:
+                    nombre_archivo = re.sub(r'\s+', '_', file.name)
+                    nombre_archivo = re.sub(r'[^\w.-]', '', nombre_archivo)
+                    ruta_archivo = os.path.join(settings.MEDIA_ROOT, nombre_archivo)
 
-                with open(ruta_archivo, 'wb+') as destino:
-                    for chunk in file.chunks():
-                        destino.write(chunk)
+                    with open(ruta_archivo, 'wb+') as destino:
+                        for chunk in file.chunks():
+                            destino.write(chunk)
 
-                # Construir URL absoluta para MongoDB
-                url_imagen = request.build_absolute_uri(
-                    os.path.join(settings.MEDIA_URL, nombre_archivo)
-                )
+                    url_imagen = request.build_absolute_uri(
+                        os.path.join(settings.MEDIA_URL, nombre_archivo)
+                    )
+                    urls_imagenes.append(url_imagen)
 
             personaje = Personaje(
                 nombre=data["nombre"],
@@ -67,7 +67,7 @@ class PersonajeView(View):
                 universo=data["universo"],
                 poderes=data.get("poderes", "").split(',') if isinstance(data.get("poderes"), str) else data.get("poderes", []),
                 apariciones=data.get("apariciones", "").split(',') if isinstance(data.get("apariciones"), str) else data.get("apariciones", []),
-                imagen=url_imagen,
+                imagenes=urls_imagenes,
                 edad=int(data["edad"]) if "edad" in data and data["edad"] else None,
                 descripcion=data.get("descripcion", "")
             )
@@ -78,3 +78,52 @@ class PersonajeView(View):
             return JsonResponse({"error": str(e)}, status=400)
         except Exception as e:
             return JsonResponse({"error": f"Error inesperado: {str(e)}"}, status=500)
+
+    def put(self, request, personaje_id):
+        try:
+            data = json.loads(request.body)
+            personaje = Personaje.objects(id=personaje_id).first()
+            if not personaje:
+                return JsonResponse({"error": "Personaje no encontrado"}, status=404)
+
+            for campo in ['nombre', 'alias', 'universo', 'edad', 'descripcion']:
+                if campo in data:
+                    setattr(personaje, campo, data[campo])
+
+            # Procesar 'poderes'
+            if "poderes" in data:
+                if isinstance(data["poderes"], str):
+                    personaje.poderes = [p.strip() for p in data["poderes"].split(',')]
+                elif isinstance(data["poderes"], list):
+                    personaje.poderes = [str(p).strip() for p in data["poderes"]]
+                else:
+                    personaje.poderes = []
+
+            # Procesar 'apariciones'
+            if "apariciones" in data:
+                if isinstance(data["apariciones"], str):
+                    personaje.apariciones = [a.strip() for a in data["apariciones"].split(',')]
+                elif isinstance(data["apariciones"], list):
+                    personaje.apariciones = [str(a).strip() for a in data["apariciones"]]
+                else:
+                    personaje.apariciones = []
+
+            personaje.save()
+            return JsonResponse({"mensaje": "Personaje actualizado"})
+        except Exception as e:
+            return JsonResponse({"error": f"Error al editar personaje: {str(e)}"}, status=500)
+
+
+
+    def delete(self, request, *args, **kwargs):
+        personaje_id = kwargs.get('personaje_id')
+        try:
+            print(f"Eliminando personaje con ID: {personaje_id}")
+            personaje = Personaje.objects(id=personaje_id).first()
+            if not personaje:
+                return JsonResponse({"error": "Personaje no encontrado"}, status=404)
+            personaje.delete()
+            return JsonResponse({"mensaje": "Personaje eliminado"})
+        except Exception as e:
+            print(f"Error al eliminar: {str(e)}")
+            return JsonResponse({"error": f"Error al eliminar personaje: {str(e)}"}, status=500)

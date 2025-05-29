@@ -1,0 +1,14 @@
+<section>
+    <h1>Lista de Personajes de DC</h1>
+    @for (personaje of personajes; track personaje.id) {
+        @if (personaje.universo === 'DC') {
+            <div>
+                <img [ngSrc]="personaje.imagenes?.[0]" alt={{personaje.nombre}} width="100" height="150" priority>
+                <div>
+                    <a>{{ personaje.alias }}</a>
+                </div>
+                <button routerLink="/personaje/{{personaje.id}}" (click)="guardarPersonaje(personaje)" >Ver detalles</button>
+            </div>
+        }
+    }
+</section>

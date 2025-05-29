@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { CargaPersonajeComponent } from './carga-personaje/carga-personaje.component';
-import { ListaPersonajesComponent } from './lista-personajes/lista-personajes.component';
+import { RouterLink, RouterOutlet } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CargaPersonajeComponent, ListaPersonajesComponent],
+  imports: [RouterOutlet, RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

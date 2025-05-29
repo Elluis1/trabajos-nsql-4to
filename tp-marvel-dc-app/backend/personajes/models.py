@@ -7,6 +7,6 @@ class Personaje(Document):
     universo = StringField(required=True, choices=('Marvel', 'DC'))
     poderes = ListField(StringField(), default=list)
     apariciones = ListField(StringField(), default=list)
-    imagen = StringField()
+    imagenes = ListField(StringField(), default=list)
     edad = IntField()
     descripcion = StringField()

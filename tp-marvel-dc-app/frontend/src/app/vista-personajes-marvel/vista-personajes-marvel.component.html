@@ -1,0 +1,15 @@
+<section>
+    <h1>Lista de Personajes de MARVEL</h1>
+    <button routerLink="/lista-heroes">Inicio</button>
+    @for (personaje of personajes; track personaje.id) {
+        @if (personaje.universo === 'Marvel') {
+            <div>
+                <img [ngSrc]="personaje.imagenes?.[0]" alt={{personaje.nombre}} width="100" height="150" priority>
+                <div>
+                    <a>{{ personaje.alias }}</a>
+                </div>
+                <button routerLink="/personaje/{{personaje.id}}" (click)="guardarPersonaje(personaje)">Ver detalles</button>
+            </div>
+        }
+    }
+</section>

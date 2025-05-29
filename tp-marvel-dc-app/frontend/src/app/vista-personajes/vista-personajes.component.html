@@ -1,1 +1,23 @@
-<p>vista-personajes works!</p>
+<button routerLink="/">
+    Inicio
+</button>
+<button (click)="posFoto()">
+ Ant.
+</button>
+<img [ngSrc]="personaje.imagenes?.[numFoto]" alt="{{ personaje.nombre }}" width="100" height="150" priority>
+<button (click)="negFoto()">
+ Sig.
+</button>
+<form (ngSubmit)="actualizarPersonaje()" #formulario="ngForm">
+  <input [(ngModel)]="personaje.nombre" type="text" name="nombre" required>
+  <input [(ngModel)]="personaje.alias" type="text" name="alias" required>
+  <select [(ngModel)]="personaje.universo" name="universo" required>
+    <option value="Marvel">Marvel</option>
+    <option value="DC">DC</option>
+  </select>
+  <input [(ngModel)]="personaje.poderes" type="text" name="poderes">
+  <input [(ngModel)]="personaje.apariciones" type="text" name="apariciones">
+  <input [(ngModel)]="personaje.edad" type="number" name="edad">
+  <textarea [(ngModel)]="personaje.descripcion" name="descripcion"></textarea>
+  <button type="submit">actualizar Personaje</button>
+</form>

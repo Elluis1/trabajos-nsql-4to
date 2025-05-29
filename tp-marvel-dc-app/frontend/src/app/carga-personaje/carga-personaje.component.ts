@@ -21,16 +21,12 @@ export class CargaPersonajeComponent {
     apariciones: '',
     edad: null,
     descripcion: '',
-    url: ''
   };
 
-  selectedFile: File | null = null;
+  selectedFiles: File[] = [];
 
-  onFileSelected(event: any): void {
-    const file = event.target.files[0];
-    if (file) {
-      this.selectedFile = file;
-    }
+  onFilesSelected(event: any): void {
+    this.selectedFiles = Array.from(event.target.files);
   }
 
   enviarDatos(): void {
@@ -38,19 +34,37 @@ export class CargaPersonajeComponent {
     formData.append('nombre', this.personaje.nombre);
     formData.append('alias', this.personaje.alias);
     formData.append('universo', this.personaje.universo);
-    formData.append('poderes', this.personaje.poderes);         // coma-separado
-    formData.append('apariciones', this.personaje.apariciones); // coma-separado
+    formData.append('poderes', this.personaje.poderes);
+    formData.append('apariciones', this.personaje.apariciones);
     formData.append('edad', this.personaje.edad !== null ? this.personaje.edad : '');
     formData.append('descripcion', this.personaje.descripcion);
-    formData.append('imagen', this.selectedFile || new Blob());
+    this.selectedFiles.forEach((file, index) => {
+      formData.append('imagenes', file); // el backend tiene que aceptar múltiples con este nombre
+    });
 
     this.ConnectionDjangoService.cargarPersonaje(formData).subscribe({
       next: (response) => {
         console.log('Personaje cargado exitosamente:', response);
+        alert('Personaje guardado con éxito');
+        this.resetFormulario();
+        this.selectedFiles = [];
       },
       error: (error) => {
         console.error('Error al cargar el personaje:', error);
+        alert('Error al guardar el personaje');
       }
     });
+  }
+
+  resetFormulario(): void {
+    this.personaje = {
+      nombre: '',
+      alias: '',
+      universo: '',
+      poderes: '',
+      apariciones: '',
+      edad: null,
+      descripcion: ''
+    };
   }
 }

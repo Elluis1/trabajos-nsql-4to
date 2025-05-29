@@ -10,7 +10,7 @@
   <input placeholder="Edad" type="number" [(ngModel)]="personaje.edad" name="edad">
   <textarea placeholder="Descripcion" [(ngModel)]="personaje.descripcion" name="descripcion"></textarea>
   
-  <input type="file" (change)="onFileSelected($event)" name="imagen">
+  <input type="file" (change)="onFilesSelected($event)" name="imagenes" multiple>
   
   <button type="submit">Guardar Personaje</button>
 </form>

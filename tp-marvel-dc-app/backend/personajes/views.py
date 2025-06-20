@@ -9,6 +9,22 @@ import json
 import re
 from django.conf import settings
 
+def filter_personajes(request):
+    alias = request.GET.get('alias', '')
+    personajes = Personaje.objects.filter(alias__icontains=alias)
+    data = [{
+        "id": str(p.id),
+        "nombre": p.nombre,
+        "alias": p.alias,
+        "universo": p.universo,
+        "poderes": p.poderes,
+        "apariciones": p.apariciones,
+        "imagenes": p.imagenes,
+        "edad": p.edad,
+        "descripcion": p.descripcion
+    } for p in personajes]
+    return JsonResponse(data, safe=False)
+
 @method_decorator(csrf_exempt, name='dispatch')
 class PersonajeView(View):
     def get(self, request):
@@ -138,3 +154,5 @@ class PersonajeView(View):
         except Exception as e:
             print(f"Error al eliminar: {str(e)}")
             return JsonResponse({"error": f"Error al eliminar personaje: {str(e)}"}, status=500)
+        
+

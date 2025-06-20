@@ -9,6 +9,10 @@ export class ConnectionDjangoService {
   URL = "http://localhost:8000/api/personajes/";
   public http = inject(HttpClient);
 
+  filterPersonajes(alias: string): Observable<any[]> {
+    return this.http.get<any[]>(`http://localhost:8000/api/personajes/filter/?alias=${alias}`);
+  }
+
   cargarPersonaje(data: any): Observable<any> {
     return this.http.post(this.URL, data)
   }

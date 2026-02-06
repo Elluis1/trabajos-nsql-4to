@@ -1,0 +1,76 @@
+<h1>SPA TP Super Heroes</h1>
+
+<app-carga-personaje></app-carga-personaje>
+
+<form (ngSubmit)="setPersonajeFilter()" class="search-form">
+  <input
+    [(ngModel)]="personajeFilter"
+    name="personajeFilter"
+    placeholder="Buscar alias"
+  />
+  <button type="submit">Buscar</button>
+</form>
+
+@if (mensajeNoEncontrado) {
+  <p>No se encontró ningún héroe</p>
+} @else {
+
+  <div class="personajes-grid">
+    @for (personaje of personajes; track personaje.id) {
+
+      <div class="personaje-card">
+
+        @if (personaje.imagenes?.length > 0) {
+          <img
+            [ngSrc]="personaje.imagenes?.[0] || '/media/placeholder.png'"
+            alt="{{ personaje.nombre }}"
+            width="180"
+            height="240"
+            priority
+          >
+        } @else {
+          <img
+            src="assets/no-image.png"
+            alt="Sin imagen"
+            width="180"
+            height="240"
+          >
+        }
+
+        <h3>{{ personaje.alias }}</h3>
+
+        <div class="personaje-actions">
+          <button
+            class="btn-delete"
+            (click)="eliminarPersonaje(personaje.id)"
+          >
+            Eliminar héroe
+          </button>
+
+          <button
+            class="btn-detail"
+            [routerLink]="['/personaje', personaje.id]"
+            (click)="guardarPersonaje(personaje)"
+          >
+            Ver detalles
+          </button>
+        </div>
+
+      </div>
+
+    }
+  </div>
+}
+
+<div class="logos">
+  <img
+    src="icons/DC_Comics_2024.svg.png"
+    routerLink="/personajes-dc"
+    alt="DC Logo"
+  >
+  <img
+    src="icons/Marvel_Logo.svg.png"
+    routerLink="/personajes-marvel"
+    alt="Marvel Logo"
+  >
+</div>

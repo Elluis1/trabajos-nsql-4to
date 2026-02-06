@@ -1,0 +1,8 @@
+<h1>Puntos Turísticos</h1>
+<ul>
+  @for (punto of puntos; track $index) {
+    <li>
+      <strong>{{ punto.cat }}:</strong> {{ punto.nombre }} ({{ punto.lat }}, {{ punto.long }})
+    </li>
+  }
+</ul>

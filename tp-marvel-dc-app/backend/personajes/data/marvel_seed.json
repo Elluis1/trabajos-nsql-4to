@@ -1,0 +1,430 @@
+[
+  {
+    "nombre": "Tony Stark",
+    "alias": "Iron Man",
+    "universo": "Marvel",
+    "poderes": ["Inteligencia", "Armadura tecnológica"],
+    "apariciones": ["Iron Man", "Avengers"],
+    "imagenes": [],
+    "edad": 48,
+    "descripcion": "Genio, millonario, filántropo"
+  },
+  {
+    "nombre": "Steve Rogers",
+    "alias": "Captain America",
+    "universo": "Marvel",
+    "poderes": ["Fuerza", "Resistencia"],
+    "apariciones": ["Captain America", "Avengers"],
+    "imagenes": [],
+    "edad": 105,
+    "descripcion": "El primer vengador"
+  },
+  {
+    "nombre": "Thor Odinson",
+    "alias": "Thor",
+    "universo": "Marvel",
+    "poderes": ["Fuerza divina", "Control del trueno"],
+    "apariciones": ["Thor", "Avengers"],
+    "imagenes": [],
+    "edad": 1500,
+    "descripcion": "Dios del trueno"
+  },
+  {
+    "nombre": "Bruce Banner",
+    "alias": "Hulk",
+    "universo": "Marvel",
+    "poderes": ["Fuerza ilimitada", "Regeneración"],
+    "apariciones": ["Hulk", "Avengers"],
+    "imagenes": [],
+    "edad": 49,
+    "descripcion": "Mientras más enojado, más fuerte"
+  },
+  {
+    "nombre": "Natasha Romanoff",
+    "alias": "Black Widow",
+    "universo": "Marvel",
+    "poderes": ["Espionaje", "Combate cuerpo a cuerpo"],
+    "apariciones": ["Avengers", "Black Widow"],
+    "imagenes": [],
+    "edad": 35,
+    "descripcion": "Espía experta"
+  },
+  {
+    "nombre": "Clint Barton",
+    "alias": "Hawkeye",
+    "universo": "Marvel",
+    "poderes": ["Puntería perfecta"],
+    "apariciones": ["Avengers"],
+    "imagenes": [],
+    "edad": 40,
+    "descripcion": "Arquero maestro"
+  },
+  {
+    "nombre": "Peter Parker",
+    "alias": "Spider-Man",
+    "universo": "Marvel",
+    "poderes": ["Agilidad", "Sentido arácnido"],
+    "apariciones": ["Spider-Man", "Avengers"],
+    "imagenes": [],
+    "edad": 21,
+    "descripcion": "Un gran poder conlleva una gran responsabilidad"
+  },
+  {
+    "nombre": "Stephen Strange",
+    "alias": "Doctor Strange",
+    "universo": "Marvel",
+    "poderes": ["Magia", "Manipulación del tiempo"],
+    "apariciones": ["Doctor Strange", "Avengers"],
+    "imagenes": [],
+    "edad": 45,
+    "descripcion": "Hechicero supremo"
+  },
+  {
+    "nombre": "T'Challa",
+    "alias": "Black Panther",
+    "universo": "Marvel",
+    "poderes": ["Fuerza", "Tecnología Wakanda"],
+    "apariciones": ["Black Panther", "Avengers"],
+    "imagenes": [],
+    "edad": 38,
+    "descripcion": "Rey de Wakanda"
+  },
+  {
+    "nombre": "Wanda Maximoff",
+    "alias": "Scarlet Witch",
+    "universo": "Marvel",
+    "poderes": ["Magia del caos", "Telequinesis"],
+    "apariciones": ["Avengers", "WandaVision"],
+    "imagenes": [],
+    "edad": 32,
+    "descripcion": "Poder caótico incontrolable"
+  },
+
+  {
+    "nombre": "Scott Lang",
+    "alias": "Ant-Man",
+    "universo": "Marvel",
+    "poderes": ["Cambio de tamaño"],
+    "apariciones": ["Ant-Man", "Avengers"],
+    "imagenes": [],
+    "edad": 45,
+    "descripcion": "Héroe con traje cuántico"
+  },
+  {
+    "nombre": "Hope van Dyne",
+    "alias": "Wasp",
+    "universo": "Marvel",
+    "poderes": ["Vuelo", "Cambio de tamaño"],
+    "apariciones": ["Ant-Man"],
+    "imagenes": [],
+    "edad": 38,
+    "descripcion": "Aliada clave de Ant-Man"
+  },
+  {
+    "nombre": "Sam Wilson",
+    "alias": "Falcon",
+    "universo": "Marvel",
+    "poderes": ["Vuelo", "Combate aéreo"],
+    "apariciones": ["Avengers"],
+    "imagenes": [],
+    "edad": 39,
+    "descripcion": "Capitán América moderno"
+  },
+  {
+    "nombre": "Bucky Barnes",
+    "alias": "Winter Soldier",
+    "universo": "Marvel",
+    "poderes": ["Fuerza", "Brazo biónico"],
+    "apariciones": ["Captain America"],
+    "imagenes": [],
+    "edad": 106,
+    "descripcion": "Soldado legendario"
+  },
+  {
+    "nombre": "Carol Danvers",
+    "alias": "Captain Marvel",
+    "universo": "Marvel",
+    "poderes": ["Energía cósmica", "Vuelo"],
+    "apariciones": ["Captain Marvel", "Avengers"],
+    "imagenes": [],
+    "edad": 34,
+    "descripcion": "Una de las heroínas más poderosas"
+  },
+  {
+    "nombre": "Peter Quill",
+    "alias": "Star-Lord",
+    "universo": "Marvel",
+    "poderes": ["Liderazgo", "Combate espacial"],
+    "apariciones": ["Guardians of the Galaxy"],
+    "imagenes": [],
+    "edad": 38,
+    "descripcion": "Líder de los Guardianes"
+  },
+  {
+    "nombre": "Gamora",
+    "alias": "Gamora",
+    "universo": "Marvel",
+    "poderes": ["Fuerza", "Combate"],
+    "apariciones": ["Guardians of the Galaxy"],
+    "imagenes": [],
+    "edad": 29,
+    "descripcion": "La mujer más peligrosa del universo"
+  },
+  {
+    "nombre": "Drax",
+    "alias": "Drax",
+    "universo": "Marvel",
+    "poderes": ["Fuerza", "Resistencia"],
+    "apariciones": ["Guardians of the Galaxy"],
+    "imagenes": [],
+    "edad": 45,
+    "descripcion": "Destructor de Thanos"
+  },
+  {
+    "nombre": "Rocket",
+    "alias": "Rocket Raccoon",
+    "universo": "Marvel",
+    "poderes": ["Ingeniería", "Armas"],
+    "apariciones": ["Guardians of the Galaxy"],
+    "imagenes": [],
+    "edad": 12,
+    "descripcion": "Mapache genio"
+  },
+  {
+    "nombre": "Groot",
+    "alias": "Groot",
+    "universo": "Marvel",
+    "poderes": ["Regeneración", "Fuerza"],
+    "apariciones": ["Guardians of the Galaxy"],
+    "imagenes": [],
+    "edad": 50,
+    "descripcion": "Yo soy Groot"
+  },
+
+  {
+    "nombre": "Matt Murdock",
+    "alias": "Daredevil",
+    "universo": "Marvel",
+    "poderes": ["Sentidos aumentados"],
+    "apariciones": ["Daredevil"],
+    "imagenes": [],
+    "edad": 34,
+    "descripcion": "El diablo de Hell's Kitchen"
+  },
+  {
+    "nombre": "Frank Castle",
+    "alias": "Punisher",
+    "universo": "Marvel",
+    "poderes": ["Combate", "Táctica"],
+    "apariciones": ["Punisher"],
+    "imagenes": [],
+    "edad": 42,
+    "descripcion": "Justicia a cualquier costo"
+  },
+  {
+    "nombre": "Reed Richards",
+    "alias": "Mr Fantastic",
+    "universo": "Marvel",
+    "poderes": ["Elasticidad", "Inteligencia"],
+    "apariciones": ["Fantastic Four"],
+    "imagenes": [],
+    "edad": 45,
+    "descripcion": "Líder de los Cuatro Fantásticos"
+  },
+  {
+    "nombre": "Sue Storm",
+    "alias": "Invisible Woman",
+    "universo": "Marvel",
+    "poderes": ["Invisibilidad", "Campos de fuerza"],
+    "apariciones": ["Fantastic Four"],
+    "imagenes": [],
+    "edad": 42,
+    "descripcion": "Heroína invisible"
+  },
+  {
+    "nombre": "Johnny Storm",
+    "alias": "Human Torch",
+    "universo": "Marvel",
+    "poderes": ["Fuego", "Vuelo"],
+    "apariciones": ["Fantastic Four"],
+    "imagenes": [],
+    "edad": 30,
+    "descripcion": "Llama viviente"
+  },
+  {
+    "nombre": "Bruce Wayne",
+    "alias": "Batman",
+    "universo": "DC",
+    "poderes": ["Millonario", "Combate cuerpo a cuerpo"],
+    "apariciones": ["Batman"],
+    "imagenes": [],
+    "edad": 30,
+    "descripcion": "El caballero oscuro"
+  },
+  {
+    "nombre": "Clark Kent",
+    "alias": "Superman",
+    "universo": "DC",
+    "poderes": [
+      "Fuerza sobrehumana",
+      "Vuelo",
+      "Visión láser",
+      "Invulnerabilidad"
+    ],
+    "apariciones": ["Action Comics #1"],
+    "imagenes": ["https://i.imgur.com/7G0Y5mR.jpg"],
+    "edad": 35,
+    "descripcion": "El último hijo de Krypton, protector de la Tierra y símbolo de esperanza."
+  },
+  {
+    "nombre": "Diana Prince",
+    "alias": "Wonder Woman",
+    "universo": "DC",
+    "poderes": ["Fuerza divina", "Combate", "Inmortalidad"],
+    "apariciones": ["All Star Comics #8"],
+    "imagenes": ["https://i.imgur.com/xr7e8qk.jpg"],
+    "edad": 3000,
+    "descripcion": "Guerrera amazona y princesa de Themyscira."
+  },
+  {
+    "nombre": "Barry Allen",
+    "alias": "Flash",
+    "universo": "DC",
+    "poderes": ["Super velocidad", "Viajar en el tiempo"],
+    "apariciones": ["Showcase #4"],
+    "imagenes": ["https://i.imgur.com/Fx5bXQv.jpg"],
+    "edad": 28,
+    "descripcion": "El hombre más rápido del mundo."
+  },
+  {
+    "nombre": "Hal Jordan",
+    "alias": "Green Lantern",
+    "universo": "DC",
+    "poderes": ["Anillo de poder", "Construcciones de energía"],
+    "apariciones": ["Showcase #22"],
+    "imagenes": ["https://i.imgur.com/jK6F1xv.jpg"],
+    "edad": 35,
+    "descripcion": "Miembro del Green Lantern Corps."
+  },
+  {
+    "nombre": "Arthur Curry",
+    "alias": "Aquaman",
+    "universo": "DC",
+    "poderes": ["Control del océano", "Fuerza", "Comunicación marina"],
+    "apariciones": ["More Fun Comics #73"],
+    "imagenes": ["https://i.imgur.com/2yP1dQY.jpg"],
+    "edad": 38,
+    "descripcion": "Rey de Atlantis."
+  },
+  {
+    "nombre": "Victor Stone",
+    "alias": "Cyborg",
+    "universo": "DC",
+    "poderes": ["Tecnopatía", "Fuerza aumentada"],
+    "apariciones": ["DC Comics Presents #26"],
+    "imagenes": ["https://i.imgur.com/Vt0aEHG.jpg"],
+    "edad": 25,
+    "descripcion": "Héroe mitad humano, mitad máquina."
+  },
+  {
+    "nombre": "Selina Kyle",
+    "alias": "Catwoman",
+    "universo": "DC",
+    "poderes": ["Agilidad", "Combate cuerpo a cuerpo"],
+    "apariciones": ["Batman #1"],
+    "imagenes": ["https://i.imgur.com/p6nM8c2.jpg"],
+    "edad": 32,
+    "descripcion": "Antihéroe experta en sigilo y robos."
+  },
+  {
+    "nombre": "Lex Luthor",
+    "alias": "Lex Luthor",
+    "universo": "DC",
+    "poderes": ["Genio", "Tecnología avanzada"],
+    "apariciones": ["Action Comics #23"],
+    "imagenes": ["https://i.imgur.com/n7cM0kN.jpg"],
+    "edad": 45,
+    "descripcion": "El mayor enemigo de Superman."
+  },
+  {
+    "nombre": "Joker",
+    "alias": "Joker",
+    "universo": "DC",
+    "poderes": ["Manipulación", "Estrategia criminal"],
+    "apariciones": ["Batman #1"],
+    "imagenes": ["https://i.imgur.com/DqEJQpN.jpg"],
+    "edad": 40,
+    "descripcion": "El Príncipe Payaso del Crimen."
+  },
+  {
+    "nombre": "Harleen Quinzel",
+    "alias": "Harley Quinn",
+    "universo": "DC",
+    "poderes": ["Agilidad", "Combate"],
+    "apariciones": ["Batman: The Animated Series"],
+    "imagenes": ["https://i.imgur.com/Y2n4CkX.jpg"],
+    "edad": 30,
+    "descripcion": "Antihéroe impredecible y caótica."
+  },
+  {
+    "nombre": "Ben Grimm",
+    "alias": "The Thing",
+    "universo": "Marvel",
+    "poderes": ["Fuerza", "Resistencia"],
+    "apariciones": ["Fantastic Four"],
+    "imagenes": [],
+    "edad": 44,
+    "descripcion": "Piel de roca"
+  },
+
+  {
+    "nombre": "Logan",
+    "alias": "Wolverine",
+    "universo": "Marvel",
+    "poderes": ["Regeneración", "Garras de adamantium"],
+    "apariciones": ["X-Men"],
+    "imagenes": [],
+    "edad": 150,
+    "descripcion": "Mutante inmortal"
+  },
+  {
+    "nombre": "Charles Xavier",
+    "alias": "Professor X",
+    "universo": "Marvel",
+    "poderes": ["Telepatía"],
+    "apariciones": ["X-Men"],
+    "imagenes": [],
+    "edad": 60,
+    "descripcion": "Líder mutante"
+  },
+  {
+    "nombre": "Erik Lehnsherr",
+    "alias": "Magneto",
+    "universo": "Marvel",
+    "poderes": ["Control del magnetismo"],
+    "apariciones": ["X-Men"],
+    "imagenes": [],
+    "edad": 65,
+    "descripcion": "Antihéroe mutante"
+  },
+  {
+    "nombre": "Jean Grey",
+    "alias": "Phoenix",
+    "universo": "Marvel",
+    "poderes": ["Telequinesis", "Fuerza fénix"],
+    "apariciones": ["X-Men"],
+    "imagenes": [],
+    "edad": 32,
+    "descripcion": "Poder cósmico"
+  },
+  {
+    "nombre": "Scott Summers",
+    "alias": "Cyclops",
+    "universo": "Marvel",
+    "poderes": ["Rayos ópticos"],
+    "apariciones": ["X-Men"],
+    "imagenes": [],
+    "edad": 35,
+    "descripcion": "Líder de campo"
+  }
+]

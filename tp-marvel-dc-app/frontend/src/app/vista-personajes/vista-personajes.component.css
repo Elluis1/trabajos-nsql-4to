@@ -1,0 +1,109 @@
+/* Contenedor principal */
+:host {
+    display: block;
+    padding: 1.5rem;
+    max-width: 900px;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Botón inicio */
+  button[routerLink] {
+    background: #374151;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+  
+  button[routerLink]:hover {
+    background: #1f2937;
+  }
+  
+  /* Galería */
+  img {
+    border-radius: 12px;
+    object-fit: cover;
+  }
+  
+  button {
+    border: none;
+    border-radius: 8px;
+    padding: 0.4rem 0.7rem;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  
+  /* Navegación fotos */
+  button:not([routerLink]) {
+    background: #4f46e5;
+    color: #fff;
+  }
+  
+  button:not([routerLink]):hover {
+    background: #4338ca;
+  }
+  
+  /* Logo universo */
+  div > img[src*="Marvel"],
+  div > img[src*="DC"] {
+    display: block;
+    margin: 1.5rem auto;
+  }
+  
+  /* Formulario edición */
+  form {
+    background: #ffffff;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  input,
+  select,
+  textarea {
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #4f46e5;
+  }
+  
+  textarea {
+    min-height: 80px;
+  }
+  
+  /* Botón actualizar */
+  form button[type="submit"] {
+    margin-top: 1rem;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    font-weight: 600;
+  }
+  
+  form button[type="submit"]:hover {
+    background: linear-gradient(135deg, #16a34a, #15803d);
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    img {
+      width: 80px;
+      height: 120px;
+    }
+  }
+  

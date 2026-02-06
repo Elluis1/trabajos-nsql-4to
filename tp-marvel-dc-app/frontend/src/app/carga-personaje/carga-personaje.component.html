@@ -1,0 +1,16 @@
+<form (ngSubmit)="enviarDatos()" enctype="multipart/form-data">
+  <input placeholder="Nombre" type="text" [(ngModel)]="personaje.nombre" name="nombre" required>
+  <input placeholder="Alias" type="text" [(ngModel)]="personaje.alias" name="alias" required>
+  <select [(ngModel)]="personaje.universo" name="universo" required>
+    <option value="Marvel">Marvel</option>
+    <option value="DC">DC</option>
+  </select>
+  <input placeholder="Poderes" type="text" [(ngModel)]="personaje.poderes" name="poderes">
+  <input placeholder="Apariciones" type="text" [(ngModel)]="personaje.apariciones" name="apariciones">
+  <input placeholder="Edad" type="number" [(ngModel)]="personaje.edad" name="edad">
+  <textarea placeholder="Descripcion" [(ngModel)]="personaje.descripcion" name="descripcion"></textarea>
+  
+  <input type="file" (change)="onFilesSelected($event)" name="imagenes" multiple>
+  
+  <button type="submit">Guardar Personaje</button>
+</form>

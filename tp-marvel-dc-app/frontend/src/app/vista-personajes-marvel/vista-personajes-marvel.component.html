@@ -1,0 +1,27 @@
+<section class="lista">
+    <h1>Lista de Personajes de DC</h1>
+
+    <button routerLink="/lista-heroes">Inicio</button>
+
+    @if (personajesMarvel.length > 0) {
+    <div class="grid">
+        @for (personaje of personajesMarvel; track personaje.id) {
+        <div class="card">
+            @if (personaje.imagenes?.length > 0) {
+            <img [ngSrc]="personaje.imagenes?.[0] || '/media/placeholder.png'" alt="{{ personaje.nombre }}" width="100" height="150">
+            }
+
+            <h3>{{ personaje.alias }}</h3>
+
+            <button routerLink="/personaje/{{ personaje.id }}" (click)="guardarPersonaje(personaje)">
+                Ver detalles
+            </button>
+        </div>
+        }
+    </div>
+    } @else {
+    <p>No hay personajes de Marvel cargados.</p>
+    }
+
+
+</section>

@@ -1,0 +1,38 @@
+:host {
+    display: block;
+    padding: 25px;
+    background-color: #f9fafc;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  
+  li {
+    background: #ffffff;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border-left: 5px solid #1e88e5;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  }
+  
+  strong {
+    color: #1e88e5;
+  }
+  
+  li div {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #555;
+  }
+  

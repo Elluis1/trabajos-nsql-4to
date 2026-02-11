@@ -4,6 +4,7 @@ import { PuntosService } from '../../services/puntos.service';
 @Component({
   selector: 'app-buscar',
   templateUrl: './puntos-fav.component.html',
+  styleUrls: ['./puntos-fav.component.css']
 })
 
 export class PuntosFavComponent {

@@ -5,7 +5,8 @@ import { PuntosService } from '../../services/puntos.service';
 @Component({
   selector: 'app-busqueda-puntos',
   imports: [FormsModule],
-  templateUrl: './puntos-cercanos.component.html'
+  templateUrl: './puntos-cercanos.component.html',
+  styleUrls: ['./puntos-cercanos.component.css']
 })
 export class BusquedaPuntosComponent {
   lat = 0;

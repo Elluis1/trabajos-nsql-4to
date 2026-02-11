@@ -11,7 +11,7 @@ const MapView = () => {
   const [airports, setAirports] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/airports")
+    fetch("http://localhost:8002/airports")
       .then((res) => res.json())
       .then((data) => setAirports(data));
   }, []);
@@ -19,7 +19,7 @@ const MapView = () => {
   const handleMarkerClick = async (iata, icao) => {
     const code = iata || icao;
     try {
-      const res = await fetch(`http://localhost:8000/airports/${code}`);
+      const res = await fetch(`http://localhost:8002/airports/${code}`);
       const data = await res.json();
       console.log("📈 Popularidad actualizada para:", code);
       // Opcional: podés mostrar los datos en un alert si querés
@@ -37,7 +37,7 @@ const MapView = () => {
     }
 
     try {
-      const res = await fetch(`http://localhost:8000/airports/${code}`, {
+      const res = await fetch(`http://localhost:8002/airports/${code}`, {
         method: "DELETE",
       });
 

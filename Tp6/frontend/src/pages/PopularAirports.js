@@ -5,7 +5,7 @@ const PopularAirports = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:8000/airports/popular")
+    fetch("http://localhost:8002/airports/popular")
       .then((res) => res.json())
       .then((data) => {
         setPopular(data);

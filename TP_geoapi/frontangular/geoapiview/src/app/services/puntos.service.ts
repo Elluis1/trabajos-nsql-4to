@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PuntosService {
-  readonly apiUrl = 'http://localhost:8000/api/';
+  readonly apiUrl = 'http://localhost:8001/api/';
 
   loadPuntos(): Observable<any> {
     const url = `guardar_puntos/`

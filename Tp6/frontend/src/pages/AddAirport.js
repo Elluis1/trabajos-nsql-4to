@@ -36,7 +36,7 @@ const AddAirport = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:8000/airports", {
+      const res = await fetch("http://localhost:8002/airports", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
